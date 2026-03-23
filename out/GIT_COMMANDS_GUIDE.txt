@@ -1,0 +1,402 @@
+================================================================================
+                       GIT COMMANDS COMPLETE GUIDE
+                  Push, Pull, Checkout, Branch & More
+================================================================================
+
+1. INITIAL GIT SETUP
+================================================================================
+
+git config --global user.name "Your Name"
+  Purpose: Set your global git username
+  When: First time setup
+
+git config --global user.email "your.email@example.com"
+  Purpose: Set your global git email
+  When: First time setup
+
+git init
+  Purpose: Initialize a new git repository in current directory
+  When: Starting a new project
+
+git clone <repository-url>
+  Purpose: Clone an existing repository from GitHub
+  Example: git clone https://github.com/vadealok55-gif/JAVA_DETAILED.git
+  When: Getting code from remote repository
+
+================================================================================
+2. GIT BRANCH COMMANDS
+================================================================================
+
+git branch
+  Purpose: List all local branches
+  When: Check which branch you're on and available branches
+  Output: Shows * next to current branch
+
+git branch -a
+  Purpose: List all branches (local and remote)
+  When: See all branches including remote-tracking branches
+
+git branch <branch-name>
+  Purpose: Create a new branch
+  Example: git branch feature/new-feature
+  When: Starting work on a new feature
+
+git branch -d <branch-name>
+  Purpose: Delete a branch (safe delete - prevents deleting unmerged branches)
+  Example: git branch -d feature/new-feature
+  When: Branch work is complete and merged
+
+git branch -D <branch-name>
+  Purpose: Force delete a branch (even if not merged)
+  Example: git branch -D feature/new-feature
+  When: You want to discard the branch regardless of merge status
+
+git branch -m <old-name> <new-name>
+  Purpose: Rename a branch
+  Example: git branch -m old-feature new-feature
+  When: Need to change branch name
+
+git branch -v
+  Purpose: Show branches with last commit info
+  When: See what's in each branch
+
+================================================================================
+3. GIT CHECKOUT COMMANDS
+================================================================================
+
+git checkout <branch-name>
+  Purpose: Switch to a different branch
+  Example: git checkout master
+  When: Moving between branches to work on different features
+
+git checkout -b <branch-name>
+  Purpose: Create and switch to a new branch in one command
+  Example: git checkout -b feature/new-feature
+  When: Start new feature and switch immediately
+
+git checkout <file-path>
+  Purpose: Discard uncommitted changes in a file
+  Example: git checkout src/main.java
+  When: Want to revert changes to a file (CAREFUL - changes are lost!)
+
+git checkout <commit-hash>
+  Purpose: Switch to a specific commit (detached HEAD state)
+  Example: git checkout a1b2c3d
+  When: View code at a specific point in history
+
+git checkout -- <file-path>
+  Purpose: Restore file to last committed state
+  Example: git checkout -- src/main.java
+  When: Undo changes to specific file
+
+================================================================================
+4. GIT PUSH COMMANDS
+================================================================================
+
+git push
+  Purpose: Push current branch to remote repository
+  When: After commits, push to update GitHub
+
+git push origin <branch-name>
+  Purpose: Push specific branch to remote
+  Example: git push origin master
+  When: Push particular branch
+
+git push -u origin <branch-name>
+  Purpose: Push branch and set upstream tracking
+  Example: git push -u origin feature/new-feature
+  When: First time pushing a new branch (sets default pull location)
+
+git push origin --all
+  Purpose: Push all branches to remote
+  When: Update remote with all local branches
+
+git push origin <branch-name> --force
+  Purpose: Force push (overwrites remote branch)
+  Example: git push origin master --force
+  WARNING: Can lose work! Only use if you know what you're doing
+
+git push origin :<branch-name>
+  Purpose: Delete remote branch
+  Example: git push origin :feature/old-feature
+  When: Clean up old branches on GitHub
+
+git push origin --delete <branch-name>
+  Purpose: Delete remote branch (safer syntax)
+  Example: git push origin --delete feature/old-feature
+  When: Remove branch from remote
+
+================================================================================
+5. GIT PULL COMMANDS
+================================================================================
+
+git pull
+  Purpose: Fetch and merge changes from remote to current branch
+  When: Update your local code with latest remote changes
+
+git pull origin <branch-name>
+  Purpose: Pull specific branch from remote
+  Example: git pull origin master
+  When: Update current branch with specific remote branch
+
+git pull --rebase
+  Purpose: Fetch and rebase instead of merge
+  When: Keep commit history linear (advanced)
+
+git fetch
+  Purpose: Download changes from remote WITHOUT merging
+  When: Check what's new without affecting your work
+
+git fetch origin
+  Purpose: Fetch all changes from origin repository
+  When: See what changed on remote
+
+================================================================================
+6. GIT COMMIT COMMANDS
+================================================================================
+
+git add <file-path>
+  Purpose: Stage specific file for commit
+  Example: git add src/main.java
+  When: Before committing changes
+
+git add .
+  Purpose: Stage all changes
+  When: Commit all modified files
+
+git add -A
+  Purpose: Stage all changes including deletions
+  When: Track all modifications
+
+git commit -m "message"
+  Purpose: Create commit with message
+  Example: git commit -m "Fix: Rectify all package declarations"
+  When: After staging files
+
+git commit -am "message"
+  Purpose: Stage and commit all tracked files (skip git add)
+  Example: git commit -am "Update configuration"
+  When: Quick commit of modified files
+
+git commit --amend
+  Purpose: Modify the last commit
+  When: Forgot to add files or fix commit message
+
+================================================================================
+7. GIT STATUS & LOG COMMANDS
+================================================================================
+
+git status
+  Purpose: Show working tree status (modified/staged/untracked files)
+  When: Check what changes exist before committing
+
+git log
+  Purpose: Show commit history
+  When: View past commits and messages
+
+git log --oneline
+  Purpose: Show concise commit history
+  When: Quick overview of commits
+
+git log --graph --oneline --all
+  Purpose: Show visual branch history
+  When: Understand branch structure
+
+git diff
+  Purpose: Show changes in modified files
+  When: Review what changed before commit
+
+git diff <branch1> <branch2>
+  Purpose: Compare two branches
+  Example: git diff master feature
+  When: See differences between branches
+
+================================================================================
+8. GIT MERGE COMMANDS
+================================================================================
+
+git merge <branch-name>
+  Purpose: Merge branch into current branch
+  Example: git merge feature/new-feature
+  When: Integrate feature branch into main branch
+
+git merge --no-ff <branch-name>
+  Purpose: Merge with a merge commit (even if fast-forward possible)
+  When: Want to preserve branch history
+
+git merge --squash <branch-name>
+  Purpose: Squash commits before merging
+  When: Clean up multiple small commits into one
+
+================================================================================
+9. GIT REMOTE COMMANDS
+================================================================================
+
+git remote -v
+  Purpose: List all remote repositories with URLs
+  When: Check configured remotes
+
+git remote add <name> <url>
+  Purpose: Add new remote repository
+  Example: git remote add origin https://github.com/vadealok55-gif/JAVA_DETAILED.git
+  When: Configure GitHub repository
+
+git remote set-url origin <new-url>
+  Purpose: Change remote URL
+  Example: git remote set-url origin https://github.com/new/repo.git
+  When: Update repository address
+
+git remote remove <name>
+  Purpose: Remove remote repository
+  Example: git remote remove origin
+  When: Delete configuration
+
+================================================================================
+10. COMMON WORKFLOWS
+================================================================================
+
+WORKFLOW 1: Clone Repository and Make Changes
+---------------------------------------------
+1. git clone https://github.com/user/repo.git
+2. cd repo
+3. git checkout -b feature/new-feature
+4. [Make your changes]
+5. git add .
+6. git commit -m "Add new feature"
+7. git push -u origin feature/new-feature
+8. [Create Pull Request on GitHub]
+
+WORKFLOW 2: Update Local Code from Remote
+-----------------------------------------
+1. git status                    [Check current status]
+2. git pull origin master        [Get latest changes]
+3. [Code is now updated]
+
+WORKFLOW 3: Switch Between Branches
+-----------------------------------
+1. git branch                    [See available branches]
+2. git checkout feature/name     [Switch to feature branch]
+3. git checkout master           [Switch back to master]
+
+WORKFLOW 4: Merge Feature into Master
+-------------------------------------
+1. git checkout master           [Switch to master]
+2. git pull origin master        [Get latest master]
+3. git merge feature/name        [Merge feature into master]
+4. git push origin master        [Push merged code]
+5. git push origin --delete feature/name  [Delete remote branch]
+6. git branch -d feature/name    [Delete local branch]
+
+WORKFLOW 5: Push Your Changes to GitHub
+---------------------------------------
+1. git status                    [Check changes]
+2. git add .                     [Stage all changes]
+3. git commit -m "Your message"  [Create commit]
+4. git push origin master        [Push to GitHub]
+
+================================================================================
+11. USEFUL QUICK COMMANDS
+================================================================================
+
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <url>
+git push -u origin master
+
+[Above = Complete setup for new project]
+
+---
+
+git clone <url>
+git checkout -b feature/name
+git add .
+git commit -m "Feature description"
+git push -u origin feature/name
+
+[Above = Create and push new feature]
+
+---
+
+git status
+git pull
+git checkout <branch>
+git push
+
+[Above = Daily workflow]
+
+================================================================================
+12. EMERGENCY COMMANDS
+================================================================================
+
+git reset --hard HEAD
+  Purpose: Discard all local changes
+  WARNING: This deletes all uncommitted work!
+
+git revert <commit-hash>
+  Purpose: Create new commit that undoes changes from specified commit
+  When: Undo committed changes safely
+
+git reflog
+  Purpose: See history of HEAD changes (useful for recovery)
+  When: Recover from accidental deletions
+
+================================================================================
+13. GIT TIPS & BEST PRACTICES
+================================================================================
+
+✓ Always pull before push: git pull && git push
+✓ Use meaningful commit messages
+✓ Create feature branches: git checkout -b feature/description
+✓ Commit frequently with small logical changes
+✓ Delete merged branches to keep repo clean
+✓ Use git status frequently to track changes
+✓ Review changes with git diff before committing
+✓ Don't force push unless absolutely necessary
+✓ Keep master/main branch stable
+✓ Test before pushing
+
+================================================================================
+14. EXAMPLE: Current Project Setup
+================================================================================
+
+# This is what was done for JAVA_DETAILED project:
+
+git init
+  → Initialize repository
+
+git config user.email "dev@example.com"
+git config user.name "Developer"
+  → Configure user
+
+git add -A
+  → Stage all files
+
+git commit -m "Fix: Rectify all package declarations and compilation errors"
+  → Create commit
+
+git remote add origin https://github.com/vadealok55-gif/JAVA_DETAILED.git
+  → Connect to GitHub
+
+git push -u origin master
+  → Push to GitHub (first time, sets upstream)
+
+Subsequent pushes: git push origin master
+
+================================================================================
+                          QUICK REFERENCE SHEET
+================================================================================
+
+BRANCH:              git branch, git branch -a, git branch <name>, git checkout -b
+CHECKOUT:            git checkout <branch>, git checkout -b <branch>
+PUSH:                git push, git push -u origin <branch>, git push origin --delete
+PULL:                git pull, git pull origin <branch>
+COMMIT:              git add ., git commit -m "message"
+STATUS:              git status, git log
+REMOTE:              git remote -v, git remote add
+
+================================================================================
+                              END OF GUIDE
+================================================================================
+For more help: git --help
+GitHub Help: https://docs.github.com
