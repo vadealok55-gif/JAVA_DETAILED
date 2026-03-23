@@ -1,0 +1,65 @@
+Iterable(interface)
+└── Collection
+    ├── List
+    │   ├── ArrayList
+    │   ├── LinkedList
+    │   ├── Vector
+    │   ├── Stack
+    │   └── CopyOnWriteArrayList
+    │
+    ├── Set
+    │   ├── HashSet
+    │   ├── LinkedHashSet
+    │   ├── TreeSet
+    │   ├── EnumSet
+    │   ├── ConcurrentSkipListSet
+    │   ├── SortedSet
+    │   └── CopyOnWriteArraySet
+    │
+    └── Queue
+        ├── LinkedList
+        ├── PriorityQueue
+        ├── Deque
+        │   ├── ArrayDeque
+        │   ├── LinkedList
+        │   └── ConcurrentLinkedDeque
+        ├── BlockingQueue
+        │   ├── ArrayBlockingQueue
+        │   ├── LinkedBlockingQueue
+        │   ├── PriorityBlockingQueue
+        │   ├── SynchronousQueue
+        │   └── DelayQueue
+        └── ConcurrentLinkedQueue
+
+
+
+
+iterable(interface) can not be directly approached so collection interface helps in it
+
+example list extends collection And collection extends iterable.
+
+
+------------------------list-----------------------------------
+list used for
+-> ordered collection framework
+-> indexed-Based access
+-> allows duplicates
+
+---------> list.Arraylist<>
+
+internal working Array is fixed size ,where as ArrayList is dynamic in nature. behind this arrayList is initially fixed array once it filled it gets copied in new double of its length Array.
+
+initial adding a element ,the list.Arraylist size is set to default 10
+
+every time it checks arraylist is full or not then the element gets added ,if arraylist is full then it increases its size 1.5 ,add copy all elements in new arraylist of existing arraylist
+
+we can initially set list.Arraylist
+ArrayList<Integer> arr=new ArrayList<>(1000);
+here 1000 is initial capacity of arraylist;
+
+here size and capacity are totally different factors in case list
+
+---------------------------------------------comparator--------------------------------
+
+this comparator used in sort() where () function denotes the comparator
+
